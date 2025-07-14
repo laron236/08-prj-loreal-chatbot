@@ -61,7 +61,10 @@ chatForm.addEventListener("submit", async function (event) {
 
     // Show the bot's response, or an error if something went wrong
     if (data.choices && data.choices[0] && data.choices[0].message) {
+      // Show the bot's answer
       addMessage(data.choices[0].message.content, "bot");
+      // Politely ask if the user needs more help
+      addMessage("Is there anything else I can help you with?", "bot");
     } else if (data.error && data.error.message) {
       addMessage(
         `Error: ${data.error.message}. Please try again later.`,
